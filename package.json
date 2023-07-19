@@ -1,0 +1,17 @@
+{
+  "name": "muzik_club_forked",
+  "version": "1.0.0",
+  "description": "PEC Music Club Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "type":"module",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1"
+  }
+}
