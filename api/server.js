@@ -7,9 +7,13 @@ const cookieParser = require('cookie-parser');
 const corsOptions = require('./config/corsOptions');
 const credentials = require('./middleware/credentials');
 const verifyRoles = require('./middleware/verifyRoles');
+const { userInfo } = require('os');
+const connectDB = require('./config/connectDB');
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+connectDB();
 
 //middleware for handling credentials and fetch cookie credentials
 app.use(credentials); 
@@ -33,6 +37,11 @@ app.use('/', require('./routes/root'));
 app.use('/login', require('./routes/login'));
 app.use('/refresh', require('./routes/refresh'));
 app.use('/logout', require('./routes/logout'));
+
+//routes for crud api
+app.use('/userInfo', require('./routes/userinfo'));
+app.use('/attendance', require('./routes/attendance'));
+app.use('/performances', require('./routes/performances'));
 
 //add verify roles middleware to the routes which require roles based authorization in future
 
