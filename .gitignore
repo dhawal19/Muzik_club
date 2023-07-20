@@ -2,3 +2,7 @@ api/node_modules
 client/node_modules
 node_modules
 api/.env
+.DS_Store
+api/.DS_Store
+client/.DS_Store
+
