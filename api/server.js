@@ -7,7 +7,6 @@ const cookieParser = require('cookie-parser');
 const corsOptions = require('./config/corsOptions');
 const credentials = require('./middleware/credentials');
 const verifyRoles = require('./middleware/verifyRoles');
-const { userInfo } = require('os');
 const connectDB = require('./config/connectDB');
 
 const app = express();
@@ -18,7 +17,7 @@ connectDB();
 //middleware for handling credentials and fetch cookie credentials
 app.use(credentials); 
 
-//middleware for handling cors
+//middleware for handling cross origin requests sent from client
 app.use(cors(corsOptions));
 
 //middleware for parsing body and json
@@ -27,6 +26,9 @@ app.use(express.json());
 
 //middleware for parsing cookies
 app.use(cookieParser());
+
+//implement all other middlewares here
+//app.use(emailGenerator);
 
 //middleware for serving static files
 app.use('/',express.static(path.join(__dirname, 'public')));
@@ -46,11 +48,9 @@ app.use('/performances', require('./routes/performances'));
 //add verify roles middleware to the routes which require roles based authorization in future
 
 app.use(verifyJWT);
-//middleware for verifying JWT used in all routes below
-// routes that require JWT ...
-// app.use('/admin', require('./routes/admin'));
-// app.use('/user', require('./routes/user'));
-// app.use('/eb',  require('./routes/eb'));
+
+//middleware for verifying JWT used in all routes belowroutes that require JWT ...
+
 
 //middleware for handling errors
 app.all('*', (req, res) => {
