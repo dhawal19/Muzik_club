@@ -330,7 +330,9 @@ async function createSlots() {
   slotCreation();
 
   // Call the function to start the slot creation process
+
   console.log("Slot creation process started.");
+  performances.forEach(async (performance) => await performance.save());
 }
 
 module.exports = createSlots;

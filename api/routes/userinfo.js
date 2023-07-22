@@ -3,15 +3,14 @@ const router = express.Router();
 const verifyRoles = require('../middleware/verifyRoles');
 const userInfoController = require('../controllers/userinfocontroller');
 
-router.route('/')
-    .post('/', userInfoController.createUserInfo)
+router.post( '/', userInfoController.createUserInfo);
 
-    .delete('/:id', userInfoController.deleteUserInfo)
+router.delete('/:id', userInfoController.deleteUserInfo)
 
-    .get('/', userInfoController.getAllUserInfo)
+router.get('/', userInfoController.getAllUserInfo);
 
-    .get('/:id', userInfoController.getUserInfoById)
+router.get('/:id', userInfoController.getUserInfoById);
 
-    .patch('/', userInfoController.updateUserInfo);
+router.patch('/', userInfoController.updateUserInfo);
 
 module.exports = router;

@@ -35,7 +35,7 @@ app.use(cookieParser());
 
 //to create slots
 // cron.schedule('1 15 * * * *', () => {
-//     createSlots();  
+createSlots();  
 // });
 
 //implement all other middlewares here

@@ -3,15 +3,14 @@ const router = express.Router();
 const verifyRoles = require('../middleware/verifyRoles');
 const attendanceController = require('../controllers/attendancecontroller');
 
-router.route('/')
-    .post(attendanceController.createAttendance)
+router.post(attendanceController.createAttendance);
 
-    .delete('/:id', attendanceController.deleteAttendance)
+router.delete('/:id', attendanceController.deleteAttendance);
 
-    .get('/', attendanceController.getAllAttendance)
+router.get('/', attendanceController.getAllAttendance);
 
-    .get('/:id', attendanceController.getAttendanceById)
+router.get('/:id', attendanceController.getAttendanceById);
 
-    .patch('/', attendanceController.updateAttendance);
+router.patch('/', attendanceController.updateAttendance);
 
 module.exports = router;
