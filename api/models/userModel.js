@@ -1,14 +1,5 @@
 const mongoose = require("mongoose");
 
-async function connectDB() {
-    try {
-        await mongoose.connect("mongodb://127.0.0.1/userDB", {useNewUrlParser: true, useUnifiedTopology: true});
-        console.log("Connected to userDB");
-    } catch (error) {
-        console.log(error);
-    }
-}
-connectDB();
 
 const userSchema = new mongoose.Schema({
     username: {
