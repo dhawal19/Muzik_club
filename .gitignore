@@ -2,7 +2,11 @@ api/node_modules
 client/node_modules
 node_modules
 api/.env
+<<<<<<< HEAD
 .DS_Store
 api/.DS_Store
 client/.DS_Store
 
+=======
+.env
+>>>>>>> 9aa125c3050cbb57013982c08adbc1a36fd5d329
