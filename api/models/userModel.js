@@ -15,8 +15,8 @@ const userSchema = new mongoose.Schema({
             type: Number,   
             default: 2001
         },
-        Admin : Number,
-        EB : Number
+        Admin : Number, //1000
+        EB : Number //1001
     },
 
     refreshToken: {

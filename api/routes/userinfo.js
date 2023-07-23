@@ -3,9 +3,9 @@ const router = express.Router();
 const verifyRoles = require('../middleware/verifyRoles');
 const userInfoController = require('../controllers/userinfocontroller');
 
-router.post('/', userInfoController.createUserInfo);
+router.post( '/', userInfoController.createUserInfo);
 
-router.delete('/:id', userInfoController.deleteUserInfo);
+router.delete('/:id', userInfoController.deleteUserInfo)
 
 router.get('/', userInfoController.getAllUserInfo);
 
