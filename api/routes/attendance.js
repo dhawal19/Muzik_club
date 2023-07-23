@@ -3,7 +3,7 @@ const router = express.Router();
 const verifyRoles = require('../middleware/verifyRoles');
 const attendanceController = require('../controllers/attendancecontroller');
 
-router.post('/', attendanceController.createAttendance);
+router.post(attendanceController.createAttendance);
 
 router.delete('/:id', attendanceController.deleteAttendance);
 
