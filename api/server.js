@@ -13,7 +13,7 @@ const cron = require("node-cron");
 const createSlots = require('./feature/algorithm');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3500;
 
 connectDB();
 
@@ -35,7 +35,7 @@ app.use(cookieParser());
 
 //to create slots
 // cron.schedule('1 15 * * * *', () => {
-createSlots();  
+// createSlots();  
 // });
 
 //implement all other middlewares here
@@ -51,17 +51,15 @@ app.use('/login', require('./routes/login'));
 app.use('/refresh', require('./routes/refresh'));
 app.use('/logout', require('./routes/logout'));
 
-//routes for crud api
+//add verify roles middleware to the routes which require roles based authorization in future
+
+app.use(verifyJWT);
 app.use('/userInfo', require('./routes/userinfo'));
 app.use('/attendance', require('./routes/attendance'));
 app.use('/performance', require('./routes/performance'));
 app.use('/slot', require('./routes/slot'));
 app.use('/feedback', require('./routes/feedback'));
-
-//add verify roles middleware to the routes which require roles based authorization in future
-
-app.use(verifyJWT);
-
+app.use('/event', require('./routes/event'));
 //middleware for verifying JWT used in all routes belowroutes that require JWT ...
 
 

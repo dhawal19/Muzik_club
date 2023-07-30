@@ -9,7 +9,7 @@ router.delete('/:id', userInfoController.deleteUserInfo)
 
 router.get('/', userInfoController.getAllUserInfo);
 
-router.get('/:id', userInfoController.getUserInfoById);
+router.get('/:email', userInfoController.getUserInfoByEmail);
 
 router.patch('/', userInfoController.updateUserInfo);
 
