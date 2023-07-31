@@ -10,9 +10,9 @@ const getAllUserInfo = async (req, res) => {
     }
 }
 
-const getUserInfoById = async (req, res) => {
+const getUserInfoByEmail = async (req, res) => {
     try{
-        const userInfo = await UserInfo.findById(req.params.id);
+        const userInfo = await UserInfo.findOne({Email: req.params.email});
         res.status(200).json(userInfo);
     }
     catch(error){
@@ -53,4 +53,4 @@ const deleteUserInfo = async (req, res) => {
     }
 }
 
-module.exports = {getAllUserInfo, getUserInfoById, createUserInfo, updateUserInfo, deleteUserInfo};
+module.exports = {getAllUserInfo, getUserInfoByEmail, createUserInfo, updateUserInfo, deleteUserInfo};

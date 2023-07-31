@@ -9,7 +9,7 @@ router.delete('/:id', slotController.deleteSlot);
 
 router.get('/', slotController.getAllSlot);
 
-router.get('/:id', slotController.getSlotById);
+router.get('/:userId', slotController.getSlotsByUserId);
 
 router.patch('/', slotController.updateSlot);
 

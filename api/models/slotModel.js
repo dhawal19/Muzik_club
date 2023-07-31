@@ -7,6 +7,7 @@ const slotSchema=new mongoose.Schema({
     },
     members:{
         required:true,
+        default:[],
         type: Array
     }, 
     time:{
