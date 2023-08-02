@@ -104,9 +104,9 @@ const Nav = () => {
               <LightMode sx = {{color : dark, fontSize: "25px"}}/>
             )}
           </IconButton>
-          <Button variant='contained' sx={{borderRadius: "0.25rem"}} onClick={() => navigate("/media")}>Media</Button>
-          <Button variant='contained' sx={{borderRadius: "0.25rem"}} onClick={() => navigate("/media")}>Members</Button>
-          <Button variant='contained' sx={{borderRadius: "0.25rem", '&:hover':{}}} onClick={() => {handleAuth()}}>{isAuth?'Logout':'Login'}</Button>
+          <Button variant='contained' sx={{borderRadius: "0.25rem", "&:hover": {backgroundColor: theme.palette.primary.light}}} onClick={() => navigate("/media")}>Media</Button>
+          <Button variant='contained' sx={{borderRadius: "0.25rem", "&:hover": {backgroundColor: theme.palette.primary.light}}} onClick={() => navigate("/media")}>Members</Button>
+          <Button variant='contained' sx={{borderRadius: "0.25rem", "&:hover": {backgroundColor: theme.palette.primary.light}}} onClick={() => {handleAuth()}}>{isAuth?'Logout':'Login'}</Button>
           {/* <FormControl variant='standard' value = {fullName}>
             <Select 
               value={fullName}

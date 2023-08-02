@@ -67,21 +67,37 @@ export const colorTokens = {
         ...(mode === "dark"
           ? {
               // palette values for dark mode
+              // primary: {
+              //   dark: colorTokens.primary[200],
+              //   main: colorTokens.primary[500],
+              //   light: colorTokens.primary[800],
+              // },
+              // neutral: {
+              //   dark: colorTokens.grey[100],
+              //   main: colorTokens.grey[200],
+              //   mediumMain: colorTokens.grey[300],
+              //   medium: colorTokens.grey[400],
+              //   light: colorTokens.grey[700],
+              // },
+              // background: {
+              //   default: colorTokens.grey[700],
+              //   alt: colorTokens.grey[800],
+              // },
               primary: {
-                dark: colorTokens.primary[200],
-                main: colorTokens.primary[500],
-                light: colorTokens.primary[800],
+                dark: colorTokens.primary2[200],
+                main: colorTokens.primary2[300],
+                light: colorTokens.primary2[200],
               },
               neutral: {
-                dark: colorTokens.grey[100],
-                main: colorTokens.grey[200],
-                mediumMain: colorTokens.grey[300],
-                medium: colorTokens.grey[400],
-                light: colorTokens.grey[700],
+                dark: colorTokens.grey2[100],
+                main: colorTokens.grey2[200],
+                mediumMain: colorTokens.grey2[300],
+                medium: colorTokens.grey2[400],
+                light: colorTokens.grey2[700],
               },
               background: {
-                default: colorTokens.grey[700],
-                alt: colorTokens.grey[800],
+                default: colorTokens.grey2[700],
+                alt: colorTokens.grey2[800],
               },
             }
           : {
@@ -103,9 +119,15 @@ export const colorTokens = {
               //   alt: colorTokens.grey[0],
               // },
               primary: {
+<<<<<<< HEAD
                 dark: colorTokens.primary[700],
                 main: colorTokens.primary[500],
                 light: colorTokens.primary[300],
+=======
+                dark: colorTokens.primary2[700],
+                main: colorTokens.primary2[500],
+                light: colorTokens.primary2[400],
+>>>>>>> 2c8e621909f143dffa8320df7e623aad6dbe0fcf
               },
               neutral: {
                 dark: colorTokens.grey[700],

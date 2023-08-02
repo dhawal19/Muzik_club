@@ -7,13 +7,13 @@ import SlidingCarousel from './SlidingCarousel.js'
 
 const images = [
   {
-    src: "/client/src/assets/club.jpg",
+    src: "/client/src/assets/Image1.jpeg",
     caption: "Image 1",
   },
   {
-    src: "/client/src/assets/club.jpg",
+    src: "/client/src/assets/Image2.jpeg",
     caption: "Image 2",
-  },
+  }
 ];
 
 function ImageCarousel(props) {
@@ -45,7 +45,7 @@ const Home = () => {
           <Box
             sx={{ border: "1px solid #ccc", borderRadius: 8, padding: "10px" }}
           >
-            <ImageCarousel array="images" />
+            <ImageCarousel images={images} />
           </Box>
         </Grid>
         <Grid item xs={6}> 
