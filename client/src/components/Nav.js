@@ -24,6 +24,7 @@ import {
 } from '@mui/icons-material'
 
 import { useDispatch, useSelector } from 'react-redux'
+import { unmountComponentAtNode } from 'react-dom'
 import {setMode, setLogout} from '../state'
 import { useNavigate } from 'react-router-dom'
 import FlexBetween from './FlexBetween'
@@ -58,8 +59,9 @@ const Nav = () => {
       });
       if (response.ok) {
         dispatch(setLogout());
+        unmountComponentAtNode(Dash)
         navigate("/");
-        // window.location.reload();
+        
       }
     } else {
       navigate("/login");

@@ -67,9 +67,9 @@ const Home = () => {
             </Typography>
           </Box>
         </Grid>
-        <Grid>
-          <SlidingCarousel />
-        </Grid>
+      </Grid>
+      <Grid>
+        <SlidingCarousel />
       </Grid>
     </main>
   );

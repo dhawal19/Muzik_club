@@ -34,7 +34,7 @@ function App() {
   //         token: response.accessToken
   //       }      
   //       ));
-  //       // navigate("/dash");
+  //       navigate("/dash");
   //     }
   //   };
   //   checkAuth();
@@ -49,7 +49,7 @@ function App() {
             <Route path="/" element={<Layout />} >
                 <Route index element={ <Home />} />
                 <Route path="login" element={<Login />} />
-                {<Route path="dash" element={<Dash />} />}
+                {isAuth && <Route path="dash" element={<Dash />} />}
                 <Route path="slot" element={<Missing />} />
                 <Route path="*" element={<Missing />} />
             </Route>

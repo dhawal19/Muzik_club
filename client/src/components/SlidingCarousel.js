@@ -15,7 +15,7 @@ const SlidingCarousel = () => {
   return (
     <Slider {...settings}>
       <div className="carousel-item">
-        <img src="https://via.placeholder.com/300" alt="Image 1" />
+        <img src="https://media.licdn.com/dms/image/C4E0BAQEogaSWUhGhdg/company-logo_200_200/0/1599289774784?e=2147483647&v=beta&t=UPyolRrk9tQ3a0PKcnCwt9MJlJhU_5CPhM3JaBWLeo0" alt="Image 1" />
       </div>
       <div className="carousel-item">
         <img src="https://via.placeholder.com/300" alt="Image 2" />
@@ -26,7 +26,6 @@ const SlidingCarousel = () => {
       <div className="carousel-item">
         <img src="https://via.placeholder.com/300" alt="Image 4" />
       </div>
-      {/* Add more slides as needed */}
     </Slider>
   );
 };

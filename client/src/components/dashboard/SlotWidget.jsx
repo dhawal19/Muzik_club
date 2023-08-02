@@ -1,7 +1,3 @@
-import {
-    EditOutlined,
-} from '@mui/icons-material'
-
 import {CircularProgress} from '@mui/material'
 
 import { Box, Typography, Divider, useTheme  } from '@mui/material'
@@ -13,9 +9,7 @@ import { useEffect, useState } from 'react'
 
 const SlotWidget = ({slots}) => {
 
-    const navigate = useNavigate();
     const {palette} = useTheme();
-    const token = useSelector(state=>state.token);
     const dark = palette.neutral.dark;
     const medium = palette.neutral.medium;
     const main = palette.neutral.main;
@@ -30,7 +24,7 @@ const SlotWidget = ({slots}) => {
             {/* first row */}
             <FlexBetween 
                 gap="0.5rem"
-                pb='1rem'
+               
             >
                 <FlexBetween gap="0.25rem">
                     <Box>
@@ -54,26 +48,25 @@ const SlotWidget = ({slots}) => {
                
                 <Box p='1rem 0'>
                 
-                    {slots.map(slot=>(<>
-                        <FlexBetween gap='2rem'>
+                    {slots.map((slot, index)=>(<>
+                        <FlexBetween gap='2rem' pt='0.5rem'>
                             <Typography color = {medium}>Performance: </Typography>
                             <Typography color = {main} fontWeight='500'>
-                                {slot.performanceName.substr(0,15)}
+                                {slot.performanceName}
                             </Typography>
                         </FlexBetween> 
-                        <FlexBetween gap='2rem'>  
+                        <FlexBetween gap='2rem' pb='0.5rem'>  
                             <Typography color = {medium}>Timing: </Typography>
                             <Typography color = {main} fontWeight='500' justifyContent="flex-end">
                                 {slot.time}
                             </Typography>
-                            <Divider/> 
                         </FlexBetween>  
+                        <Divider /> 
                         </>
                     ))}
 
                 </Box>
 
-                <Divider/>
                 {/* fourth row */}
                 {/* <Box p='1rem 0'>
                    
