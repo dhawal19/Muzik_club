@@ -118,13 +118,9 @@ const Form = () => {
                                 p:"1rem",
                                 backgroundColor: palette.primary.main,
                                 color: palette.background.alt,
-<<<<<<< HEAD
-                                "& hover": {color: palette.primary.light },
-=======
                                 "&:hover": {
                                     backgroundColor: palette.primary.light
                                 },
->>>>>>> 2c8e621909f143dffa8320df7e623aad6dbe0fcf
 
                             }}
                         >

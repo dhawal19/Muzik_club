@@ -3,28 +3,20 @@ import { useState } from 'react'
 import { 
   Box,
   IconButton,
-  InputBase,
   Typography,
-  Select,
-  MenuItem,
-  FormControl,
   useTheme,
   useMediaQuery,
   Button
 } from '@mui/material'
 
 import {
-  Message,
   DarkMode,
   LightMode,
-  Notifications,
-  Help,
   Menu,
   Close
 } from '@mui/icons-material'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { unmountComponentAtNode } from 'react-dom'
 import {setMode, setLogout} from '../state'
 import { useNavigate } from 'react-router-dom'
 import FlexBetween from './FlexBetween'
@@ -34,7 +26,7 @@ const Nav = () => {
   const [isMobileMenuToggeld, setIsMobileMenuToggeld] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector(state => state.user);
+  // const user = useSelector(state => state.user);
   const token = useSelector(state => state.token);
   const isAuth = Boolean(useSelector(state => state.token));
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
@@ -46,8 +38,6 @@ const Nav = () => {
   const primary = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
 
-  const fullName = 'user';
-  // `${user.firstName} ${user.lastName}`;
 
   const handleAuth = async () => {
     if (isAuth) {
@@ -59,9 +49,7 @@ const Nav = () => {
       });
       if (response.ok) {
         dispatch(setLogout());
-        unmountComponentAtNode(Dash)
-        navigate("/");
-        
+        window.location.replace("/");
       }
     } else {
       navigate("/login");
@@ -85,14 +73,6 @@ const Nav = () => {
           }}
           >Muzik Club
           </Typography>
-        {/* {isNonMobile && (
-          // <FlexBetween backgroundColor = {neutralLight} borderRadius = "9px" gap= "3rem" padding="0.1rem 1.5rem">
-          //   <InputBase placeholder="Search..." />
-          //   <IconButton>
-          //     <Search />
-          //   </IconButton>
-          // </FlexBetween>
-        )} */}
       </FlexBetween>
       {/** Desktop Nav */}
       {isNonMobile ? (
@@ -107,30 +87,6 @@ const Nav = () => {
           <Button variant='contained' sx={{borderRadius: "0.25rem", "&:hover": {backgroundColor: theme.palette.primary.light}}} onClick={() => navigate("/media")}>Media</Button>
           <Button variant='contained' sx={{borderRadius: "0.25rem", "&:hover": {backgroundColor: theme.palette.primary.light}}} onClick={() => navigate("/media")}>Members</Button>
           <Button variant='contained' sx={{borderRadius: "0.25rem", "&:hover": {backgroundColor: theme.palette.primary.light}}} onClick={() => {handleAuth()}}>{isAuth?'Logout':'Login'}</Button>
-          {/* <FormControl variant='standard' value = {fullName}>
-            <Select 
-              value={fullName}
-              sx = {{
-                backgroundColor: neutralLight,
-                width: "150px",
-                borderRadius: "0.25rem",
-                p: "0.25rem 1rem",
-                '& .MuiSvgIcon-root': {
-                  pr: "0.25rem",
-                  width: "3rem"
-                },
-                '& .MuiSelect-select:focus': {
-                  backgroundColor: neutralLight,
-                },
-              }}
-              input={<InputBase />}
-            >
-              <MenuItem value={fullName}>
-                <Typography> {fullName}</Typography>
-              </MenuItem>
-              <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
-            </Select>
-          </FormControl> */}
         </FlexBetween>) : 
         (<IconButton 
           onClick={() => setIsMobileMenuToggeld(!isMobileMenuToggeld)}
@@ -175,33 +131,9 @@ const Nav = () => {
                   <LightMode sx = {{color : dark, fontSize: "25px"}}/>
                 )}
               </IconButton>
-              <Message sx = {{fontSize: "25px"}}/>
-              <Notifications sx = {{fontSize: "25px"}}/>
-              <Help sx = {{fontSize: "25px"}}/>
-              <FormControl variant='standard' value = {fullName}>
-                <Select 
-                  value={fullName}
-                  sx = {{
-                    backgroundColor: neutralLight,
-                    width: "150px",
-                    borderRadius: "0.25rem",
-                    p: "0.25rem 1rem",
-                    '& .MuiSvgIcon-root': {
-                      pr: "0.25rem",
-                      width: "3rem"
-                    },
-                    '& .MuiSelect-select:focus': {
-                      backgroundColor: neutralLight,
-                    },
-                  }}
-                  input={<InputBase />}
-                >
-                <MenuItem value={fullName}>
-                  <Typography> {fullName}</Typography>
-                </MenuItem>
-                <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
-                </Select>
-              </FormControl>
+              <Button variant='contained' sx={{borderRadius: "0.25rem", "&:hover": {backgroundColor: theme.palette.primary.light}}} onClick={() => navigate("/media")}>Media</Button>
+              <Button variant='contained' sx={{borderRadius: "0.25rem", "&:hover": {backgroundColor: theme.palette.primary.light}}} onClick={() => navigate("/media")}>Members</Button>
+              <Button variant='contained' sx={{borderRadius: "0.25rem", "&:hover": {backgroundColor: theme.palette.primary.light}}} onClick={() => {handleAuth()}}>{isAuth?'Logout':'Login'}</Button>
           </FlexBetween>
         </Box>
         

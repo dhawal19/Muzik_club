@@ -1,17 +1,34 @@
 import React from 'react'
-import { Box, useTheme, useMediaQuery, Typography } from '@mui/material'
-import FlexBetween from '../FlexBetween';
-import WidgetWrapper from '../WidgetWrapper';
+import { Box, useMediaQuery } from '@mui/material'
 import UserWidget from './UserWidget';
 import { useSelector , useDispatch} from 'react-redux';
 import { useEffect } from 'react';
 import { setEvents } from '../../state';
 import SlotsWidget from './SlotsWidget';
+import { useNavigate } from 'react-router-dom';
 import PieChart from './PieChart';
+import { setLogin } from '../../state';
 
 const Dash = () => {
   const dispatch = useDispatch();
   const token = useSelector(state => state.token);
+  const navigate = useNavigate();
+
+  const refresh = async () => {
+    const response = await fetch('http://localhost:3500/refresh', {
+      method: 'GET',
+      credentials: 'include',
+    });
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(setLogin({
+        token: data.accessToken
+      }));
+    }
+    else {
+      navigate('/login');
+    }
+  }
 
   const getEvents = async () => { 
     const response = await fetch('http://localhost:3500/event', {
@@ -30,7 +47,11 @@ const Dash = () => {
       }
   }
   useEffect(() => {
-    getEvents();
+    if(!token) {
+      refresh();
+    }
+
+    else getEvents();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   
@@ -47,7 +68,7 @@ const Dash = () => {
       display={isNonMobile ? "flex" : "block"}
     >
       <Box flexBasis={isNonMobile ? "26%" : undefined}>
-        <UserWidget email = {user.email} />
+        {user.email!==undefined?<UserWidget email = {user.email} /> : null}
       </Box>   
         {isNonMobile && (
           <Box flexBasis="26%">

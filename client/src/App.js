@@ -22,24 +22,26 @@ function App() {
   const navigate = useNavigate();
 
 
-  // useEffect(() => {
-  //   const checkAuth = async () => {
-  //     const response = await fetch("http://localhost:3500/refresh", {
-  //       method: "GET",
-  //       credentials: "include",
-  //     });
-  //     if (response.ok) {
-  //       setIsAuth(true);
-  //       dispatch(setLogin({
-  //         token: response.accessToken
-  //       }      
-  //       ));
-  //       navigate("/dash");
-  //     }
-  //   };
-  //   checkAuth();
+  useEffect(() => {
+    const checkAuth = async () => {
+      const response = await fetch("http://localhost:3500/refresh", {
+        method: "GET",
+        credentials: "include",
+      });
+      if (response.ok) {
+        setIsAuth(true);
+        dispatch(setLogin({
+          token: response.accessToken
+        }      
+        ));    
+      } else {
+        setIsAuth(false);
+        navigate("/login");  
+      }
+    };
+    checkAuth();
   
-  // }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="App">

@@ -1,6 +1,3 @@
-import {
-    EditOutlined,
-} from '@mui/icons-material'
 
 import {CircularProgress} from '@mui/material'
 
@@ -21,6 +18,8 @@ const UserWidget = ({email}) => {
     const medium = palette.neutral.medium;
     const main = palette.neutral.main;
 
+    
+
     const getUser = async () => {
         const response = await fetch(`http://localhost:3500/userinfo/${email}`, { // TODO: change to /userinfo/:id
             method: "GET",
@@ -34,7 +33,6 @@ const UserWidget = ({email}) => {
     };
 
     useEffect(() => {
-       
         getUser();
         
         setIsLoading(false);
